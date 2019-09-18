@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .hide{
+
+    }
+    .number {
+        background: red;
+        font-size: 3rem;
+        margin: 1rem;
+    }    
+    </style>
+</head>
+<body>
+    <div>
+        <div class="input">
+        <input type="text" name="number"></div>
+        <button> Add </button>
+    </div>
+
+    <div class="numbers">
+
+    </div>
+</body>
+
+<script>
+    let btn = document.querySelector('button')
+    let numbersContainer = document.querySelector('.numbers')
+    let numbers = []
+
+    btn.onclick = (e) => {
+        e.preventDefault()
+        let inputNumber= document.querySelector('input')
+        numbers.push(inputNumber.value)
+        let numberContainer = document.createElement('div')
+        numberContainer.classList.add('number')
+        numberContainer.innerHTML = inputNumber.value
+        numbersContainer.appendChild(numberContainer)
+        console.log(numbers)
+    }
+</script>
+</html>
