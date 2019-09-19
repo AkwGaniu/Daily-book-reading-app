@@ -3,22 +3,34 @@ var bgModal = document.querySelector(".bg-modal")
 var books = []
 var booksListing = document.querySelector(".book-listing")
 var inputField = document.querySelector("input")
+var buton = document.querySelector(".button")
+var val = null
+
 
 closeButton.addEventListener("click", () => {
     bgModal.style.display = "none"
+    buton.innerHTML = "Add Book"
+
 })
 
 document.querySelector("#add").addEventListener("click", () => {
     bgModal.style.display = "flex"
 })
 
-document.querySelector(".button").addEventListener("click", () => {
+buton.addEventListener("click", () => {
     //Get the book title
     let bookName = collectBookTitle();
     //Hide the modal
-    document.querySelector(".bg-modal").style.display = "none"
+    bgModal.style.display = "none"
     //Add book to page
-    addBook(bookName)
+
+    if (val !== null) {
+        val.firstElementChild.innerText = bookName
+        val = null
+        buton.innerHTML = "Add Book"
+    } else {
+        addBook(bookName)
+    }
     //Clear input field content
     clear()
 })
@@ -29,7 +41,6 @@ let counter = 0
 //Function Declaration
 let collectBookTitle = () => {
     bookTitle = inputField.value
-    console.log(bookTitle)
     return bookTitle
 }
 
@@ -41,6 +52,7 @@ let addBook = (title) => {
         <div class="book" id = "book${counter}">
             <p contenteditable="true" id = "b-title${counter}">${title}</p>
             <p class="action">
+                <span  class = "edit" id = "edit${counter}" onclick = "editTitle(this)"><i class="fas fa-edit"></i></span>
                 <i class="far fa-window-close" id = "del${counter}" onclick = "delBook(this)"></i>
             </p>
         </div>
@@ -52,14 +64,16 @@ let addBook = (title) => {
 let clear = () => {
     document.querySelector("input").value = ""
 }
-
+ 
 let editTitle = (content) => {
    // let valueToEdit = document.querySelector()
    
  
-   let val = content.parentNode.parentNode.parentNode.firstElementChild.innerText
+    val = content.parentNode.parentNode.parentNode.firstElementChild
+    let initialCoontent = val.innerText
+    buton.innerHTML = "Change Title"
     bgModal.style.display =  "flex"
-    inputField.value = val
+    inputField.value = initialCoontent
 
 
 
