@@ -14,17 +14,10 @@ body {
     font-size: 1em;
 }
 
-main {
+header {
+    /* padding: 0 10px; */
     width: 60%;
     margin: 0% 20%;
-    min-height: 400px;
-    /* background-color: cyan; */
-    padding: 10px 10px 10px 10px ;
-    position: relative;
-}
-
-header {
-    padding: 0 10px;
 }
 
 .heading {
@@ -77,10 +70,11 @@ margin-top: 12px;
 }
 
 .book-listing {
-    margin: 0 10px;
+    width: 60%;
+    margin: 0% 20%;
+    min-height: 725px;
     padding: 10px 20px;
     background-color: rgb(255, 255, 255);
-    min-height: 400px;
     border-left: 1px solid rgb(0, 0, 0);
     border-right: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid rgb(0, 0, 0);
@@ -179,22 +173,14 @@ margin-top: 12px;
         padding: 0;
         margin: 0
     }
-    main {
-        width: 100%;
-        margin: 0%;
-        min-height: 400px;
-        /* background-color: cyan; */
-        padding: 10px 10px 10px 10px ;
-    }
 
-    .book {
-        font-size: 1rem;
-        padding: 0px 10px 0px 6px;
-        
+    header {
+        width: 100%;
+        margin: 0;
     }
 
     .heading {
-        padding: 10px;
+        padding: 10px 30px;
     }
 
     .heading h1 {
@@ -216,8 +202,16 @@ margin-top: 12px;
     }
 
     .book-listing {
-        margin: 0 10px;
+        width: 100%;
+        margin: 0%;
+        min-height: 444px;
         padding: 10px 10px 0px 10px;
+    }
+
+    .book {
+        font-size: 1rem;
+        padding: 0px 10px 0px 6px;
+        
     }
 
     footer {
