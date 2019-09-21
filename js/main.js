@@ -22,17 +22,19 @@ buton.addEventListener("click", () => {
     let bookName = collectBookTitle();
     //Hide the modal
     bgModal.style.display = "none"
+
     //Add book to page
 
     if (val !== null) {
         val.firstElementChild.innerText = bookName
         val = null
         buton.innerHTML = "Add Book"
+        clearField()
     } else {
         addBook(bookName)
+        clearField()
     }
     //Clear input field content
-    clear()
 })
 
 //Counter for books added
@@ -59,9 +61,12 @@ let addBook = (title) => {
     `
     booksListing.append(bookContainer)
 
+    console.log(books)
+    localStorage.setItem("booktitle", books)
+
 }
 
-let clear = () => {
+let clearField = () => {
     document.querySelector("input").value = ""
 }
  
