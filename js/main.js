@@ -32,8 +32,10 @@ buton.addEventListener("click", () => {
 
     bgModal.style.display = "none"      //Hide the modal
 
-    if (val !== null) {     //Add book to page
+    if (val !== null) {  
+        console.log(val)
 
+        //Add book to page
         let editId = val.getAttribute("id") 
         editId = editId.substr(4, 2)    //Get the array index from the Id
         local = localStorageGet()   
@@ -55,6 +57,7 @@ buton.addEventListener("click", () => {
         document.location.reload(true)
 
     } else {
+        alert("Somet")
 
         addToLocalStorage(bookName)
         clearInputField()
@@ -85,6 +88,7 @@ const addToLocalStorage = (title) => {
     } else {
         books.push(title)
         localStorageSet(books)
+        console.log(val)
         document.location.reload(true)  //Reload page to reeflect changes
     }
 }
@@ -149,10 +153,10 @@ const delBook = (del) => {
 
 
 const editTitle = (content) => {    
-    let = content.parentNode.parentNode.parentNode.firstElementChild
+    val = content.parentNode.parentNode.parentNode.firstElementChild
     let initialCoontent = val.innerText
-
     buton.innerHTML = "Update"
     bgModal.style.display =  "flex"
     inputField.value = initialCoontent
+
 }

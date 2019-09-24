@@ -102,12 +102,11 @@ margin-top: 12px;
     color: rgb(157, 172, 241);
     font-size: 1rem;
     cursor: pointer;
-
 }
 
 
 .action i, .fa-window-close {
-    color: rgb(253, 177, 177);
+    color: rgb(245, 150, 150);
     font-size: 1rem;
     cursor: pointer;
 }
@@ -210,8 +209,17 @@ margin-top: 12px;
 
     .book {
         font-size: 1rem;
-        padding: 0px 10px 0px 6px;
+        padding: 0px 12px 0px 6px;
         
+    }
+
+    .action .edit {
+        font-size: 1.2rem;    
+    }
+    
+    
+    .action i, .fa-window-close {
+        font-size: 1.2rem;
     }
 
     footer {
