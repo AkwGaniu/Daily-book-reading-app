@@ -53,8 +53,6 @@ buton.addEventListener("click", () => {
     bgModal.style.display = "none"      //Hide the modal
 
     if (val !== null) {  
-        console.log(val)
-
         //Add book to page
         let editId = val.getAttribute("id") 
         editId = editId.substr(4, 2)    //Get the array index from the Id
