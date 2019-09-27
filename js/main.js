@@ -5,10 +5,30 @@ var booksListing = document.querySelector(".book-listing")
 var inputField = document.querySelector("input")
 var buton = document.querySelector(".button")
 var val = null
-
+// var currentItem = null
+// var currentFather  =null
 
 document.addEventListener("DOMContentLoaded", e => {    
     addBookToPage()
+    // let count = 0
+    // let todos = document.querySelectorAll(".book")
+    // for(const todo of todos) {
+    //     count++
+    //     todo.parentNode.setAttribute("id", `father${count}`)
+    //     todo.parentNode.className = "containers"
+    //     todo.addEventListener("dragstart", dragStart)
+    //     todo.addEventListener("dragend", dragEnd)
+        
+    // }
+
+    // let containers = document.querySelectorAll(".containers")
+    // for(const container of containers) {
+    //     container.addEventListener("dragenter", dragEnter)
+    //     container.addEventListener("dragover", dragOver)
+    //     container.addEventListener("dragleave", dragLeave)
+    //     container.addEventListener("drop", dragDrop)
+    // }
+
 })
 
 
@@ -16,8 +36,8 @@ closeButton.addEventListener("click", () => {
     bgModal.style.display = "none"
     buton.innerHTML = "Add Book"
     inputField.setAttribute("autofocus", "false")
-
-
+    clearInputField()
+    val = null
 })
 
 document.querySelector("#add").addEventListener("click", () => {
@@ -40,7 +60,7 @@ buton.addEventListener("click", () => {
         editId = editId.substr(4, 2)    //Get the array index from the Id
         local = localStorageGet()   
         local = Object.entries(local)
-
+ 
         for ([key, value] of local) {
             if(key === editId) {
                 local.splice(key, 1, bookName)  //Replace the current item
@@ -57,8 +77,6 @@ buton.addEventListener("click", () => {
         document.location.reload(true)
 
     } else {
-        alert("Somet")
-
         addToLocalStorage(bookName)
         clearInputField()
     }
@@ -158,5 +176,83 @@ const editTitle = (content) => {
     buton.innerHTML = "Update"
     bgModal.style.display =  "flex"
     inputField.value = initialCoontent
-
 }
+
+
+
+
+
+// //Drag and drop functions
+
+// function dragStart() {
+//     currentItem = this.id
+//     currentFather = this.parentNode.id
+//     this.classList.add("hold")
+//     this.parentNode.classList.add("empty") 
+//     setTimeout(()=>this.classList.add("transparent"), 500)
+// }
+
+// function dragEnd() {
+//     this.classList.remove("hold")
+//     this.parentNode.classList.remove("empty")
+//     this.classList.remove("transparent")
+// }
+
+// function dragEnter(e) {
+//     e.preventDefault()
+    
+    
+// }
+
+// function dragOver(e) {
+//     e.preventDefault()
+//     this.classList.add("drag-holder")
+//     this.classList.add("empty")
+
+    
+
+//     console.log("over me")
+// }
+
+// function dragLeave(e) {
+//     e.preventDefault()
+//     this.classList.remove("empty")
+
+//     this.classList.remove("drag-holder")
+
+//     // let newParent = document.querySelector("#"+ currentFather)
+//     // console.log(newParent)
+    
+
+//     // this.append(newParent.firstElementChild)
+//     // setTimeout(() => this.remove(this.firstElementChild), 0)
+//     // console.log(newParent)
+    
+
+//     // setTimeout(() => this.remove(this.firstElementChild), 0)
+    
+
+
+// }
+
+
+
+// function dragDrop() {
+//     let current = document.querySelector("#"+currentItem)
+//     let newParent = document.querySelector("#"+ currentFather)
+
+//     newParent.firstElementChild.remove()
+//     newParent.append(this.firstElementChild)
+
+//     setTimeout(() => this.remove(this.firstElementChild), 0)
+//     this.append(current)
+
+//     console.log(currentFather)
+//     // this.classList.remove("drag-holder")
+    
+//     // console.log(this.firstElementChild)
+//     // // console.log(th.parentNode.id)
+//     // currentItem = null
+
+// }
+
