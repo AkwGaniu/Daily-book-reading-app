@@ -129,6 +129,7 @@ const addBookToPage = () => {
             </p>
         </div>
     `
+
     booksListing.append(bookContainer)
     }
     
@@ -167,8 +168,6 @@ const delBook = (del) => {
         return;
     }
 }
-
-
 
 const editTitle = (content) => {    
     val = content.parentNode.parentNode.parentNode.firstElementChild
